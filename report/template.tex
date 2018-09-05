@@ -1,0 +1,116 @@
+\documentclass[twocolumn]{article}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=0.79in]{geometry}
+\usepackage{lastpage}
+\usepackage[compact]{titlesec}
+
+\titleformat{\section}[hang]{\bfseries\large}{\thesection}{0.5em}{}
+\titleformat{\subsection}[hang]{\bfseries\normalsize}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}[runin]{\bfseries\normalsize}{\thesubsubsection}{0.5em}{}
+
+\title{\large{\textbf{ACS Lab 1 - Matrix Multiplication}}}
+\author{
+    \small Ronald Chevalier (student nr, netid)
+    \and \small Lonnie Donaho (student nr, netid)
+    \and \small Another Name (student nr, netid)
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+    \footnotesize{Report contains \pageref{LastPage} of maximum 6 pages.}
+\end{center}
+
+\section{Introduction}
+Briefly describe what you are going to show in this report, which benchmarks.
+
+\section{Experimental setup}
+Briefly describe the systems you have benchmarked on, and by which methods you have measured.
+
+\section{Vector inner product}
+\subsection{Description}
+Briefly describe this benchmark.
+\subsection{Profile}
+Briefly describe and show graphs of the performance of your baseline implementation.
+\subsection{Discussion}
+Briefly discuss / conclude peculiarities about this benchmark.
+
+\section{Matrix multiplication}
+\subsection{Description}
+Briefly describe this benchmark.
+\subsection{Estimation}
+Briefly describe an estimation about the performance of matrix multiplication w.r.t. the vector baseline benchmark.
+\subsection{Profile}
+Briefly describe and show graphs of the performance of your baseline implementation.
+\subsection{Discussion}
+Briefly discuss / conclude peculiarities about this benchmark.
+
+\section{SIMD extensions}
+\subsection{Description}
+Briefly describe this benchmark.
+\subsection{Profile}
+Briefly describe and show graphs of the performance of your baseline implementation.
+\subsection{Estimation}
+Briefly describe what improvements you can make based on the profile, and how much benefit it will give (in terms of e.g. speedup, throughput).
+\subsection{Design and implementation}
+Briefly describe all discrete improvements that you've made.
+\subsubsection{Improvement X}
+Your description goes here.
+\subsubsection{Improvement Y}
+\subsection{Results after improvement}
+Briefly show the results after improvements.
+\subsubsection{Results after improvement X}
+\subsubsection{Results after improvement Y}
+\subsection{Discussion}
+Briefly discuss / conclude your work on this benchmark.
+
+\section{OpenMP}
+\subsection{Description}
+Briefly describe this benchmark.
+\subsection{Profile}
+Briefly describe and show graphs of the performance of your baseline implementation.
+\subsection{Estimation}
+Briefly describe what improvements you can make based on the profile, and how much benefit it will give (in terms of e.g. speedup, throughput).
+\subsection{Design and implementation}
+Briefly describe all discrete improvements that you've made.
+\subsubsection{Improvement X}
+\subsubsection{Improvement Y}
+\subsection{Results after improvement}
+Briefly show the results after improvements.
+\subsubsection{Results after improvement X}
+\subsubsection{Results after improvement Y}
+\subsection{Discussion}
+Briefly discuss / conclude your work on this benchmark.
+
+\section{OpenCL}
+\subsection{Description}
+Briefly describe this benchmark.
+\subsection{Profile}
+Briefly describe and show graphs of the performance of your baseline implementation.
+\subsection{Estimation}
+Briefly describe what improvements you can make based on the profile, and how much benefit it will give (in terms of e.g. speedup, throughput).
+\subsection{Design and implementation}
+Briefly describe all discrete improvements that you've made.
+\subsubsection{Improvement X}
+\subsubsection{Improvement Y}
+\subsection{Results after improvement}
+Briefly show the results after improvements.
+\subsubsection{Results after improvement X}
+\subsubsection{Results after improvement Y}
+\subsection{Discussion}
+Briefly discuss / conclude your work on this benchmark.
+
+\section{Conclusion}
+
+\begin{thebibliography}{}
+\bibitem{SomeReference} 
+Some Author
+\textit{Some Title}
+Some Information about how to find this reference.
+\end{thebibliography}
+
+\end{document}
