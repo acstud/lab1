@@ -271,7 +271,7 @@ up with your TU Delft e-mail account.
 ## Where do I get the baseline project?
 
 ```console
-git clone https://github.com/acstud/acs.git
+git clone https://github.com/acstud/lab1.git
 ```
 
 ## Can I change any other files?
