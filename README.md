@@ -36,19 +36,6 @@ These are not only skills to help you in this course, but they are used in
 many master courses. If you miss any of them, it is recommended to learn
 them as soon as possible.
 
-## Can I fork this repository as a student?
-
-Answer: __do not fork it (publicly)__
-
-#### Why not? This is rediculous!
-
-According to examination rules and regulations, if you made it possible to 
-commit fraud, you are partially responsible. Therefore, if you fork this 
-repository publicly and you commit changes to it, and other students plagiarize
-from your repository, you are partially responsible for the fraud.
-
-We didn't make those rules, but let's respect them to not get into trouble!
-
 ### Help! I cannot C/C++!
 If you have never written applications using C/C++, it is highly likely that
 you will find this course too difficult to complete. You might want to take 
@@ -75,7 +62,20 @@ asked and answered all questions you can think of already somewhere online.
 #### I am extremely stubborn and I do not want to use GNU/Linux!
 
 [MobaXTerm](https://mobaxterm.mobatek.net/) is a  pretty good terminal client
-for Windows.    
+for Windows.
+
+## Can I fork this repository as a student?
+
+Answer: __do not fork it (publicly)__
+
+#### Why not? This is rediculous!
+
+According to examination rules and regulations, if you made it possible to 
+commit fraud, you are partially responsible. Therefore, if you fork this 
+repository publicly and you commit changes to it, and other students plagiarize
+from your repository, you are partially responsible for the fraud.
+
+We didn't make those rules, but let's respect them to not get into trouble!
 
 ## What is AVX?
 AVX stands for Advanced Vector Extensions. They are additional instructions
