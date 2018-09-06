@@ -53,8 +53,8 @@ at hand.
 Very nice open-source books about LaTeX
 [exist](https://en.wikibooks.org/wiki/LaTeX).
 
-### Help! I do not have a GNU/Linux distro on my laptop/computer.
-It's a very good idea to get your computer to dual boot a GNU/Linux distro.
+### Help! I do not have a GNU/Linux distribution on my laptop/computer.
+It's a very good idea to get your computer to dual boot a GNU/Linux distribution.
 [Ubuntu](https://www.ubuntu.com/download/desktop)
 is a good distribution for beginners with a large userbase that have probably
 asked and answered all questions you can think of already somewhere online.
@@ -68,7 +68,7 @@ for Windows.
 
 Answer: __do not fork it (publicly)__
 
-#### Why not? This is rediculous!
+#### Why not? This is ridiculous!
 
 According to examination rules and regulations, if you made it possible to 
 commit fraud, you are partially responsible. Therefore, if you fork this 
@@ -117,7 +117,7 @@ insy-nodeXX   ??? (t.b.d.)
 ```
 
 Although possible, you do not necessarily have to debug all parts of your 
-application on these machines. It is recommended to first functionaly test and
+application on these machines. It is recommended to first functionally test and
 debug your application on a local machine before benchmarking on these nodes.
 
 Most modern laptops, for example, have vector extensions with multiple cores,
@@ -160,7 +160,7 @@ and your studies.
 
 * If you run anything unrelated, such as e.g. cryptocoin miners or video 
 renderers, __you and your group__ will, without warning:
-  * immeddiately fail the course without any chance of resit.
+  * immediately fail the course without any chance of resit.
   * be revoked of access to the cluster.
   
 * If you think you do need to run something that might appear suspicious, and 
@@ -185,6 +185,7 @@ you are actually on at the moment. Use this to check out which node you are on:
 ```console
 hostname
 ```
+
 ## How to enable GPU support on a node?
 
 GPU support on the nodes is enabled through the use of Environment Modules.
@@ -274,45 +275,6 @@ up with your TU Delft e-mail account.
 git clone https://github.com/acstud/lab1.git
 ```
 
-## Can I change any other files?
-
-You can do so, but it should not be necessary, unless you find any bugs.
-If you find any, please let us know, and we will try to update the baseline
-projects as soon as possible.
-
-Other than that, if you change any of the files, you should explain in your
-report why you did so.
-
-## What are good resources to have at hand during the lab?
-
-__HIGHLY RECOMMENDED__ resources are:
-
-* [Intel Intrinsics Guide](https://software.intel.com/sites/landingpage/IntrinsicsGuide/)
-    * This link will take you to the Intel intrinsics guide. This is a 
-    searchable library of all the x86 intrinsics that an Intel machine might 
-    or might not support.
-* [OpenMP API C/C++ Syntax Reference Guide](https://www.openmp.org/wp-content/uploads/OpenMP-4.5-1115-CPP-web.pdf)
-    * This is a handy cheat sheet. You can also discover a lot of functions
-    that OpenMP supplies here. 
-* [OpenCL API docs](https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml)
-    * We use OpenCL 1.2 in the lab. This links will bring you to the API docs.
-    Here you can read the interface specification of various OpenCL functions.
-* [OpenCL API 1.2 reference card](https://www.khronos.org/files/opencl-1-2-quick-reference-card.pdf)
-    * This is another handy cheat sheet to get a quick overview of all the
-    functions that you can use in OpenCL.
-
-## Help! Some bug in the baseline project is preventing me from completing the lab!
-
-While we have tested the deployment of the baseline project, it is possible
-that some bugs exist, as the lab is relatively new, and this year is the first
-time we use the INSY cluster. Before you report this bug, try to make sure that
-it's an actual bug in the baseline and not in your own code.
-
-Once you have done that, do not panic. The lab instructors are reasonable
-people. Let us know as soon as possible. We will try to fix the bug and
-if it's something really serious, we may even postpone a deadline (although
-you should never count on it).
-
 ## How do I compile and run the baseline project?
 
 A CMake script has been supplied with the baseline project.
@@ -374,6 +336,45 @@ file will no work for us. Sorry!
 You can find them here:
 
 [baseline/src/students](baseline/src/students)
+
+## Can I change any other files?
+
+You can do so, but it should not be necessary, unless you find any bugs.
+If you find any, please let us know, and we will try to update the baseline
+projects as soon as possible.
+
+Other than that, if you change any of the files, you should explain in your
+report why you did so.
+
+## What are good resources to have at hand during the lab?
+
+__HIGHLY RECOMMENDED__ resources are:
+
+* [Intel Intrinsics Guide](https://software.intel.com/sites/landingpage/IntrinsicsGuide/)
+    * This link will take you to the Intel intrinsics guide. This is a 
+    searchable library of all the x86 intrinsics that an Intel machine might 
+    or might not support.
+* [OpenMP API C/C++ Syntax Reference Guide](https://www.openmp.org/wp-content/uploads/OpenMP-4.5-1115-CPP-web.pdf)
+    * This is a handy cheat sheet. You can also discover a lot of functions
+    that OpenMP supplies here. 
+* [OpenCL API docs](https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml)
+    * We use OpenCL 1.2 in the lab. This links will bring you to the API docs.
+    Here you can read the interface specification of various OpenCL functions.
+* [OpenCL API 1.2 reference card](https://www.khronos.org/files/opencl-1-2-quick-reference-card.pdf)
+    * This is another handy cheat sheet to get a quick overview of all the
+    functions that you can use in OpenCL.
+    
+## Help! Some bug in the baseline project is preventing me from completing the lab!
+
+While we have tested the deployment of the baseline project, it is possible
+that some bugs exist, as the lab is relatively new, and this year is the first
+time we use the INSY cluster. Before you report this bug, try to make sure that
+it's an actual bug in the baseline and not in your own code.
+
+Once you have done that, do not panic. The lab instructors are reasonable
+people. Let us know as soon as possible. We will try to fix the bug and
+if it's something really serious, we may even postpone a deadline (although
+you should never count on it).
 
 ## How to get CMake to detect OpenCL on the cluster nodes?
 
@@ -443,7 +444,7 @@ For example, when you are in the lab1 baseline project directory, you can use
 once:
 
 ```bash
-scp -r src <netid>@linux-bastion.tudelft.nl
+scp -r src <netid>@linux-bastion.tudelft.nl:~/path/to/your/src
 ```
 
 Then you can go into a second terminal that is logged in to an INSY cluster
@@ -478,6 +479,18 @@ chmod +x <script name>.sh
 
 From now on, the lab will be less tiring!
 
+## Can I see a list of commands that I typed previously?
+
+```console
+history
+```
+
+You could even pipe it into grep to search your history, example:
+
+```console
+history | grep cmake
+```
+
 ## Is there a template for the lab report?
 
 Yes. This is a [the LaTeX template](baseline/report/template.tex) and it is actually
@@ -497,8 +510,8 @@ about what you've changed, but that it didn't change significantly.
 However, if you get over, let's say, 5% improvement, then it is worth to
 show new graphs. 
 
-Also if you get _less_ performance but did not intially
-expect so, you may write this down. If you show insight on why you did
+Also if you get _less_ performance but did not initially expect so, 
+you may write this down. If you show insight on why you did
 not get what you've expected, this is seen as a learning opportunity and
 thus it is not met with reduced points. On the contrary, we encourage 
 this.
@@ -538,8 +551,8 @@ Only submissions that follow these requirements are accepted:
     * Example: deadline is Monday 17th of September, 09:00 AM CEST. 
         You have taken ample time to finish the report without having to worry,
         and so your clock shows 08:59:59. You hit the send button. The course
-        instructors check the time on the e-mail. It says 09:00:00 AM CEST. 
-        The report is on time.
+        instructors check the time on the e-mail. It says 09:00:01 AM CEST. 
+        The report is not on time. You will not receive points or feedback.
     * Your e-mail was sent from a TU Delft (student) e-mail account.
         * Example: an e-mail sent from bzhang-1@student.tudelft.nl - accepted.
         * Example: an e-mail sent from 23476324@qq.com - denied.
@@ -578,7 +591,8 @@ a source.
 copy-paste the code without modifications. After we talk to you about this, 
 it seems like you can not explain the code either. You have included a 
 source.
-  * Our verdict: not plagiarism, but your grade is zero.
+  * Our verdict: not formally plagiarism, as you have stated your source,
+   but your grade is zero because you didn't learn anything.
   * Reason: it is not your work, so we cannot grade you; you will not 
     receive any points.
   * Consequence: you will have to do some form of resit and not repeat
