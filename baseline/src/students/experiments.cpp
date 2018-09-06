@@ -57,7 +57,7 @@ void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeat
     ss << std::setw(15) << (std::to_string(e) + ",");
 
     // Print the problem size
-    ss << std::setw(15) << (std::to_string(mat_rows) + "x" + std::to_string(mat_cols) + ",") << std::flush;
+    ss << std::setw(15) << (std::to_string(mat_rows) + ",") << std::flush;
 
     // Create the matrices
     t.start(); // Start the timer.
