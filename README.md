@@ -136,10 +136,10 @@ your available hardware.
 
 ## How do I connect to the GPU cluster?
 
-Log in to the linux-bastion of TU Delft:
+Log in to the `student-linux.tudelft.nl`:
 
 ```console
-ssh <netid>@linux-bastion.tudelft.nl
+ssh <netid>@student-linux.tudelft.nl
 ```
 From there, log in to __one__ of the login nodes:
 
@@ -457,7 +457,7 @@ If you don't know what you're doing, do not change anything.
 
 ## I am editing on my local machine! How do I copy files to the cluster?
 
-Upload the sources to your home directory on `linux-bastion.tudelft.nl`.
+Upload the sources to your home directory on `student-linux.tudelft.nl`.
 This is in sync with the INSY cluster nodes.
 
 For example, when you are in the lab1 baseline project directory, you can use 
@@ -465,7 +465,7 @@ For example, when you are in the lab1 baseline project directory, you can use
 once:
 
 ```bash
-scp -r src <netid>@linux-bastion.tudelft.nl:~/path/to/your/src
+scp -r src <netid>@student-linux.tudelft.nl:~/path/to/your/src
 ```
 
 Then you can go into a second terminal that is logged in to an INSY cluster
