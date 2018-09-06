@@ -112,8 +112,8 @@ cluster.
 The names of these nodes are:
 
 ```
-insy-nodeXX   ??? (t.b.d.)
-insy-nodeXX   ??? (t.b.d.)
+insy-node05
+insy-node06
 ```
 
 Although possible, you do not necessarily have to debug all parts of your 
@@ -409,22 +409,43 @@ When you are on the cluster, you can submit jobs using the sbatch command.
 An more detailed explanation is recommended reading material, and can be found
 [here](http://insy-login.hpc.tudelft.nl/).
 
+You __must__, however, use a specific partition (a group of nodes, let's say) and
+a specific quality-of-service (a set of requirements on the resources you can
+request from the cluster).
+
+These are:
+```console
+--partition=ee4c07
+--qos=ee4c07
+```
+
+When you want to submit a script to SLURM, you must always supply these
+arguments to sbatch (or you must put them in a job script, see below).
+
 Example:
 
 ```console
-sbatch --nodelist=insy-node??? <job script.sh>
-??? (t.b.d.)
+sbatch --partition=ee4c07 --qos=ee4c07 <job script.sh>
+```
+
+## Where is the output?
+
+In a file called slurm-<jobid>.out. You can easily show the output using, 
+for example:
+
+```console
+cat slurm-1234.out
 ```
 
 ## Do you have a template for a job script?
 ```console
 #!/bin/sh
-#SBATCH --partition=general ??? THIS WILL CHANGE (t.b.d.)
-#SBATCH --qos=short         ??? THIS WILL CHANGE (t.b.d.)
+#SBATCH --partition=ee4c07
+#SBATCH --qos=ee4c07
 #SBATCH --time=0:01:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=1024
+#SBATCH --mem=4000
 #SBATCH --gres=gpu
 #SBATCH --mail-type=FAIL
 
@@ -515,6 +536,29 @@ you may write this down. If you show insight on why you did
 not get what you've expected, this is seen as a learning opportunity and
 thus it is not met with reduced points. On the contrary, we encourage 
 this.
+
+## How do I make plots?
+
+It is recommended to use a decent plotting tool (e.g. not Microsoft Excel or 
+LibreOffice Calc). Some good plots can be made with free tools such as matplotlib
+in Python. You could also use MATLAB or Scilab.
+
+There is [an IPython Notebook with an example available here](report/plotting_tutorial.ipynb).
+
+## What ranges should I measure in terms of problem size / run-time?
+
+The beginning of your measurement range should be as small as possible, to 
+identify any initialization overhead.
+
+The end of your measurement range is arrived when measurements take a 
+couple of seconds. Then you are in a range where initialization 
+overhead of the different techniques becomes somewhat negligible (__for this lab__!). 
+However, be aware that you don't have infinite memory.
+
+You also measure everywhere in between. You _could_ make this very fine grained, but
+if this doesn't show any anomalies, please refrain from cluttering your plot
+and take bigger steps.
+
 
 ## How do I turn in my report / lab sources?
 
