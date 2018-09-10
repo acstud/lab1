@@ -140,7 +140,11 @@ struct Matrix {
         T rv = rhs(r, c);
         T diff = lv - rv;
         T err = diff * diff;
-        if (err >= 1E-12) {
+        if (err >= 1E-6) {
+          std::cerr << "Error larger than threshold at (" << r << ", " << c << ")." << std::endl;
+          std::cerr << "Left hand side value : " << lv << std::endl;
+          std::cerr << "Right hand side value: " << rv << std::endl;
+          std::cerr << "Squared difference   : " << err << std::endl;
           return false;
         }
       }
@@ -165,7 +169,7 @@ struct Matrix {
     std::cout << "Matrix: " << std::endl;
     for (size_t r = 0; r < rows; r++) {
       for (size_t c = 0; c < columns; c++) {
-        std::cout << std::fixed << std::setprecision(24) << std::setw(26) << this->operator()(r, c) << " ";
+        std::cout << std::fixed << std::setprecision(4) << std::setw(6) << this->operator()(r, c) << " ";
       }
       std::cout << "\n";
     }

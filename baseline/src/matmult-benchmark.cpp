@@ -36,6 +36,7 @@ struct BenchmarkOptions {
   bool openmp_range = false;
   bool opencl = false;
   bool tests = false;
+  bool verbose_testing = false;
 
   // Experiment options
   unsigned int repeats = 1;
@@ -45,13 +46,13 @@ struct BenchmarkOptions {
 
   /// @brief Print usage information
   static void usage(char *argv[]) {
-    std::cerr << "Usage: " << argv[0] << " -rvmscta -o <threads>\n" <<
+    std::cerr << "Usage: " << argv[0] << " -hrvmscta -x X -y Y -r R -o <threads>\n" <<
               "  -h    Show help.\n"
               "\n"
               "Experiment option:\n"
               "  -x X  Start the experiment at X. (default = 1)\n"
               "  -y Y  End the experiment at Y. (default = 8)\n"
-              "  -r R  Repeat each experiment R times.\n"
+              "  -r R  Repeat each experiment/test R times.\n"
               "\n"
               "Experiment selection: \n"
               "  -v    Run baseline vector experiment.\n"
@@ -63,7 +64,8 @@ struct BenchmarkOptions {
               "  -a    Run all, including tests.\n"
               "\n"
               "Other options:\n"
-              "  -t    Run functional tests for all matrix multiplication functions.\n";
+              "  -t    Run functional tests for all matrix multiplication functions.\n"
+              "  -u    Increase verbosity of functional tests (on stderr).\n";
 
     std::cerr.flush();
     exit(0);
@@ -71,11 +73,11 @@ struct BenchmarkOptions {
 
   /// @brief Run matrix multiplication tests
   /// This uses all implementations that are compiled into the project.
-  static void runTests() {
-    if (!testMatMult<float>())
+  void runTests() {
+    if (!testMatMult<float>(repeats, verbose_testing))
       std::cerr << "Single-precision floating point matrix multiplication FAILED." << std::endl;
 
-    if (!testMatMult<double>())
+    if (!testMatMult<double>(repeats, verbose_testing))
       std::cerr << "Double-precision floating point matrix multiplication FAILED." << std::endl;
 
     std::cerr.flush();
@@ -111,7 +113,7 @@ int main(int argc, char *argv[]) {
 
   // Use GNU getopt to parse command line options
   int opt;
-  while ((opt = getopt(argc, argv, "hx:y:r:vmsOctao:")) != -1) {
+  while ((opt = getopt(argc, argv, "hx:y:r:vmsOctao:u")) != -1) {
     switch (opt) {
       case 'x': {
         char *end;
@@ -161,6 +163,9 @@ int main(int argc, char *argv[]) {
         break;
 
       case 't':bo.tests = true;
+        break;
+
+      case 'u':bo.verbose_testing = true;
         break;
 
       case 'a': {
