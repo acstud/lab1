@@ -469,7 +469,7 @@ For example, when you are in the lab1 baseline project directory, you can use
 once:
 
 ```bash
-scp -r src <netid>@linux-bastion.tudelft.nl:~/path/to/your/src
+scp -r src <netid>@student-linux.tudelft.nl:~/path/to/your/src
 ```
 
 Then you can go into a second terminal that is logged in to an INSY cluster
