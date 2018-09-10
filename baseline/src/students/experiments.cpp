@@ -68,7 +68,7 @@ void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeat
     t.stop(); // Stop the timer.
     t.report(ss); // Put interval on stdout
 
-    // Randomize their contents based on your group number (change the constexpr at the top of this file!!!)
+    // Randomize their contents
     t.start();
     mat_a.randomize();
     mat_b.randomize();

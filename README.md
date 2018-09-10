@@ -444,8 +444,8 @@ cat slurm-1234.out
 #SBATCH --qos=ee4c07
 #SBATCH --time=0:01:00
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=4000
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=1024
 #SBATCH --gres=gpu
 #SBATCH --mail-type=FAIL
 
@@ -454,6 +454,10 @@ srun <your command>
 
 Please consult the INSY cluster presentation for more information about those options. 
 If you don't know what you're doing, do not change anything.
+
+Please be aware that if you are going to run the OpenMP benchmark, you might want to
+change to `--cpus-per-task=8`. You cannot get more than 8 cores within this specific
+QoS.
 
 ## I am editing on my local machine! How do I copy files to the cluster?
 
@@ -465,7 +469,7 @@ For example, when you are in the lab1 baseline project directory, you can use
 once:
 
 ```bash
-scp -r src <netid>@student-linux.tudelft.nl:~/path/to/your/src
+scp -r src <netid>@linux-bastion.tudelft.nl:~/path/to/your/src
 ```
 
 Then you can go into a second terminal that is logged in to an INSY cluster
