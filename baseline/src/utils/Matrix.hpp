@@ -45,11 +45,8 @@ struct Matrix {
   Matrix<T>(size_t rows, size_t columns) : rows(rows), columns(columns) {
     // Make sure the dimensions are valid
     if ((rows > 0) && (columns > 0)) {
-      // Allocate space and store it using a smart pointer
-      values = std::shared_ptr<T>(new T[rows * columns], std::default_delete<T[]>());
-
-      // Zero-initialize the array
-      std::memset(values.get(), 0, rows * columns);
+      // Allocate space, zero initialize it and store matrix using a smart pointer
+      values = std::shared_ptr<T>(new T[rows * columns](), std::default_delete<T[]>());
 
       // Check if calloc worked.
       if (values == nullptr) {
