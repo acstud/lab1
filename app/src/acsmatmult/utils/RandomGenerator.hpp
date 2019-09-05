@@ -33,7 +33,7 @@ template<>
 struct RandomGenerator<float> {
   // Use the mt19937 random number engine
   std::mt19937 gen;
-  // Use a uniform real destribution for floats
+  // Use a uniform real distribution for floats
   std::uniform_real_distribution<float> dis;
 
   explicit RandomGenerator(int seed = 0) : gen(std::mt19937(seed)) {}
@@ -45,7 +45,7 @@ template<>
 struct RandomGenerator<double> {
   // Use the mt19937 random number engine
   std::mt19937 gen;
-  // Use a uniform real destribution for doubles
+  // Use a uniform real distribution for doubles
   std::uniform_real_distribution<double> dis;
 
   explicit RandomGenerator(int seed = 0) : gen(std::mt19937(seed)) {}
@@ -57,7 +57,7 @@ template<>
 struct RandomGenerator<int> {
   // Use the mt19937 random number engine
   std::mt19937 gen;
-  // Use a uniform real destribution for integers
+  // Use a uniform real distribution for integers
   std::uniform_int_distribution<int> dis;
 
   explicit RandomGenerator(int seed = 0) : gen(std::mt19937(seed)) {}
@@ -66,13 +66,13 @@ struct RandomGenerator<int> {
 };
 
 template<>
-struct RandomGenerator<long> {
+struct RandomGenerator<int64_t> {
   // Use the mt19937 random number engine
   std::mt19937 gen;
-  // Use a uniform real destribution for longs
-  std::uniform_int_distribution<long> dis;
+  // Use a uniform real distribution for longs
+  std::uniform_int_distribution<int64_t> dis;
 
   explicit RandomGenerator(int seed = 0) : gen(std::mt19937(seed)) {}
 
-  inline long next() { return dis(gen); }
+  inline int64_t next() { return dis(gen); }
 };

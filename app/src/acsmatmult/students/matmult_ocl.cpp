@@ -14,17 +14,17 @@
 
 // OpenCL
 #ifdef __APPLE__
-#include "OpenCL/opencl.h"
+#include <OpenCL/opencl.h>
 #else
-#include "CL/cl.h"
+#include <CL/cl.h>
 #endif
 
-#include "../matmult.hpp"
+#include "acsmatmult/matmult.hpp"
 
 /* You may not remove these pragmas: */
 /*************************************/
 #pragma GCC push_options
-#pragma GCC optimize ("O1")
+#pragma GCC optimize ("O0")
 
 /*************************************/
 
@@ -39,7 +39,6 @@
 enum class ClInfoType {
   CHAR, SIZE_T, //... add your own info types
 };
-
 
 /// @brief Function to discover OpenCL devices and print some info on stdout.
 static std::vector<cl_device_id> discoverDevices(cl_platform_id platform_id) {
@@ -75,7 +74,7 @@ static std::vector<cl_device_id> discoverDevices(cl_platform_id platform_id) {
         auto query = new char[info_size];
         CHECK(clGetDeviceInfo(platform_type_device, info_queries[i], info_size, query, &info_size));
         switch (info_types[i]) {
-          case ClInfoType::SIZE_T: std::cout << *(size_t*)query << std::endl;
+          case ClInfoType::SIZE_T: std::cout << *reinterpret_cast<size_t *>(query) << std::endl;
             break;
           default:std::cout << query << std::endl;
             break;
@@ -181,7 +180,7 @@ Matrix<float> multiplyMatricesOCL(Matrix<float> a,
   // https://www.khronos.org/registry/OpenCL/sdk/1.2/docs/man/xhtml/clCreateProgramWithSource.html
   // Obviously, it would be prettier if this came from some file.
   auto example_kernel_source =
-      "__kernel void vecmult_kernel(__global float *arg0,   \n" \
+      "__kernel void vecmult_kernel(__global float *arg0,       \n" \
           "                             __global float *arg1,   \n" \
           "                             __global float *result, \n" \
           "                             const unsigned int size)\n" \

@@ -327,7 +327,7 @@ And implement experiments as well after completing each of the following:
 
 `matmult-benchmark -t`
 
-However, be aware that we will only copy the [baseline/src/students](baseline/src/students)
+However, be aware that we will only copy the [app/src/acsmatmult/students](app/src/acsmatmult/students)
 back into our own baseline project. So anything you change outside that
 file will no work for us. Sorry!
 
@@ -335,7 +335,7 @@ file will no work for us. Sorry!
 
 You can find them here:
 
-[baseline/src/students](baseline/src/students)
+[app/src/acsmatmult/students](app/src/acsmatmult/students)
 
 ## Can I change any other files?
 
@@ -378,7 +378,7 @@ you should never count on it).
 
 ## How to get CMake to detect OpenCL on the cluster nodes?
 
-In the CMake build scripts called [CMakeLists.txt](baseline/CMakeLists.txt), some scripts 
+In the CMake build scripts called [CMakeLists.txt](app/CMakeLists.txt), some scripts 
 are included that attempt to find OpenCL support. Once you've loaded the CUDA 
 module, CMake will probably still not detect OpenCL.
 
@@ -518,7 +518,7 @@ history | grep cmake
 
 ## Is there a template for the lab report?
 
-Yes. This is a [the LaTeX template](baseline/report/template.tex) and it is actually
+Yes. This is a [the LaTeX template](report/template.tex) and it is actually
 __mandatory__ to use this template. As you can read in the next question, 
 any lab reports that do not use this template are denied. This is to make 
 sure we can correct your lab reports quickly. In this way, you will receive
@@ -568,7 +568,7 @@ and take bigger steps.
 
 Only submissions that follow these requirements are accepted:
 
-* __You have used [the LaTeX template](../report/template.tex) to create the report.__
+* __You have used [the LaTeX template](report/template.tex) to create the report.__
 
 * __The file name of your report is GROUP_XX_netid0_netid1_netid2.pdf__
   * Example: GROUP_01_alee_bzhang_cwang.pdf - accepted.

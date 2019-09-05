@@ -12,18 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <iostream>
-#include <vector>
-#include <random>
-#include <chrono>
-#include <iomanip>
-#include <memory>
-#include <cassert>
 #include <getopt.h>
+#include <iostream>
+#include <memory>
 
-#include "tests/test_matmult.hpp"
-
-#include "experiments.hpp"
+#include "acsmatmult/tests/test_matmult.hpp"
+#include "acsmatmult/experiments.hpp"
 
 /**
  * @brief Structure to pass program options to and run different experiments.
@@ -50,13 +44,13 @@ struct BenchmarkOptions {
               "  -h    Show help.\n"
               "\n"
               "Experiment option:\n"
-              "  -x X  Start the experiment at X. (default = 1)\n"
-              "  -y Y  End the experiment at Y. (default = 8)\n"
+              "  -x X  Start the experiment with singular dimension 2^X. (default: X=1)\n"
+              "  -y Y  End the experiment with dimension 2^Y. (default: Y=8)\n"
               "  -r R  Repeat each experiment/test R times.\n"
               "\n"
               "Experiment selection: \n"
-              "  -v    Run baseline vector experiment.\n"
-              "  -m    Run baseline matrix experiment.\n"
+              "  -v    Run app vector experiment.\n"
+              "  -m    Run app matrix experiment.\n"
               "  -s    Run SIMD experiment.\n"
               "  -o N  Run OpenMP experiment using N threads.\n"
               "  -O    Run OpenMP ranging threads from 1-8\n"
@@ -85,22 +79,17 @@ struct BenchmarkOptions {
   }
 
   void run() {
-    if (vector)
-      runVectorExperiment(from, to, repeats);
-    if (matrix)
-      runMatrixExperiment(from, to, repeats);
-    if (simd)
-      runMatrixExperimentSIMD(from, to, repeats);
-    if (openmp_single)
-      runMatrixExperimentOMP(from, to, threads, repeats);
-    if (openmp_range)
+    if (vector) runVectorExperiment(from, to, repeats);
+    if (matrix) runMatrixExperiment(from, to, repeats);
+    if (simd) runMatrixExperimentSIMD(from, to, repeats);
+    if (openmp_single) runMatrixExperimentOMP(from, to, threads, repeats);
+    if (openmp_range) {
       for (unsigned int t = 1; t < 9; t++) {
         runMatrixExperimentOMP(from, to, t, repeats);
       }
-    if (opencl)
-      runMatrixExperimentOCL(from, to, repeats);
-    if (tests)
-      runTests();
+    }
+    if (opencl) runMatrixExperimentOCL(from, to, repeats);
+    if (tests) runTests();
   }
 };
 

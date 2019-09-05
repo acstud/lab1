@@ -15,10 +15,8 @@
 #pragma once
 
 #include <ctime>
-
-#include "../utils/Matrix.hpp"
-
-#include "../matmult.hpp"
+#include "acsmatmult/utils/Matrix.hpp"
+#include "acsmatmult/matmult.hpp"
 
 /**
  * @brief Test matrix multiplication
@@ -49,7 +47,7 @@ bool testMatMult(unsigned int repeats, bool verbose) {
     mat_a.randomize(1337);
     mat_b.randomize(42);
 
-    // Calculate baseline
+    // Calculate app
     auto mat_baseline = mat_a * mat_b;
 
     // Create a vector to store other matrix results

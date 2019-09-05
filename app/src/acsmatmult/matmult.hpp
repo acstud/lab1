@@ -15,8 +15,7 @@
 #pragma once
 
 #include <memory>
-
-#include "utils/Matrix.hpp"
+#include "acsmatmult/utils/Matrix.hpp"
 
 Matrix<float> multiplyMatricesSIMD(Matrix<float> a, Matrix<float> b);
 

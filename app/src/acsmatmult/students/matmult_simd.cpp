@@ -12,38 +12,48 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// OpenMP:
-#include <omp.h>
-
-#include "../matmult.hpp"
+#include "acsmatmult/matmult.hpp"
+#include <immintrin.h>  // Intel intrinsics for SSE/AVX.
 
 /* You may not remove these pragmas: */
 /*************************************/
 #pragma GCC push_options
-#pragma GCC optimize ("O1")
+#pragma GCC optimize ("O0")
 /*************************************/
 
-Matrix<float> multiplyMatricesOMP(Matrix<float> a,
-                                  Matrix<float> b,
-                                  int num_threads) {
+typedef union _avxd {
+  __m256d val;
+  double arr[4];
+} avxd;
+
+Matrix<float> multiplyMatricesSIMD(Matrix<float> a, Matrix<float> b) {
   /* REPLACE THE CODE IN THIS FUNCTION WITH YOUR OWN CODE */
-  /* YOU MUST USE OPENMP HERE */
+  /* YOU MUST USE VECTOR EXTENSIONS HERE */
 
-  std::cout << "OpenMP test, brace for impact!" << std::endl;
+  std::cout << "AVX2 test" << std::endl;
 
-  // Test if OpenMP works:
-#pragma omp parallel for
-  for (int i = 0; i < 8; i++) {
-    std::cout << "Hello World " << "from thread " << omp_get_thread_num() << std::endl;
+  // Test if AVX2 works:
+  __m256d x = _mm256_set_pd(0.1, 0.2, 0.3, 0.4);
+  __m256d y = _mm256_set_pd(0.5, 0.6, 0.7, 0.8);
+
+  avxd z;
+
+  z.val = _mm256_add_pd(x, y);
+
+  for (int i = 0; i < 4; i++) {
+    std::cout << "z[" << i << "] = " << z.arr[i] << std::endl;
   }
+
   return Matrix<float>(1, 1);
 }
 
-Matrix<double> multiplyMatricesOMP(Matrix<double> a,
-                                   Matrix<double> b,
-                                   int num_threads) {
+Matrix<double> multiplyMatricesSIMD(Matrix<double> a,
+                                  Matrix<double> b) {
   /* REPLACE THE CODE IN THIS FUNCTION WITH YOUR OWN CODE */
-  /* YOU MUST USE OPENMP HERE */
+  /* YOU MUST USE VECTOR EXTENSIONS HERE */
   return Matrix<double>(1, 1);
 }
+
+/*************************************/
 #pragma GCC pop_options
+/*************************************/
