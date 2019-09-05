@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "acsmatmult/experiments.hpp"
+#include "acsmatmult/experiments.h"
 #include <fstream>
-#include "acsmatmult/utils/Timer.hpp"
-#include "acsmatmult/utils/Matrix.hpp"
+#include "acsmatmult/utils/Timer.h"
+#include "acsmatmult/utils/Matrix.h"
 
 void generateHeader(std::stringstream &ss,
                     const std::vector<std::string> &headers,
@@ -75,13 +75,13 @@ void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeat
     ss << std::setw(15) << (std::to_string(mat_rows) + ",") << std::flush;
 
     // Create the matrices
-    t.start(); // Start the timer.
-    auto mat_a = Matrix<float>(mat_cols, mat_rows); // Make a matrix
-    auto mat_b = Matrix<float>(mat_rows, mat_cols); // And another one, transposed.
-    auto mat_c = Matrix<double>(mat_cols, mat_rows); // And another one, doubles.
-    auto mat_d = Matrix<double>(mat_rows, mat_cols); // And another one, transposed.
-    t.stop(); // Stop the timer.
-    t.report(ss); // Put interval on stdout
+    t.start();  // Start the timer.
+    auto mat_a = Matrix<float>(mat_cols, mat_rows);  // Make a matrix
+    auto mat_b = Matrix<float>(mat_rows, mat_cols);  // And another one, transposed.
+    auto mat_c = Matrix<double>(mat_cols, mat_rows);  // And another one, doubles.
+    auto mat_d = Matrix<double>(mat_rows, mat_cols);  // And another one, transposed.
+    t.stop();  // Stop the timer.
+    t.report(ss);  // Put interval on stdout
 
     // Randomize their contents
     t.start();
@@ -97,10 +97,10 @@ void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeat
 
     // Repeat the floats experiment repeats times.
     for (unsigned int r = 0; r < repeats; r++) {
-      t.start(); // Start the timer.
+      t.start();  // Start the timer.
       // Multiply the matrices
       auto mat_result = Matrix<float>::multiply(mat_a, mat_b);
-      t.stop(); // Stop the timer.
+      t.stop();  // Stop the timer.
       t.report(ss);
 
       // Dump the repeat outcome

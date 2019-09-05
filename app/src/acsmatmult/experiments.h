@@ -17,6 +17,7 @@
 #include <vector>
 #include <iostream>
 #include <iomanip>
+#include "acsmatmult/matmult.h"
 
 /// @brief Generate a readable header into a stringstream.
 void generateHeader(std::stringstream &ss,

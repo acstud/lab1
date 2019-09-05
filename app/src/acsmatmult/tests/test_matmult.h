@@ -14,9 +14,11 @@
 
 #pragma once
 
-#include <ctime>
-#include "acsmatmult/utils/Matrix.hpp"
-#include "acsmatmult/matmult.hpp"
+#include <string>
+#include <tuple>
+#include <vector>
+#include "acsmatmult/utils/Matrix.h"
+#include "acsmatmult/matmult.h"
 
 /**
  * @brief Test matrix multiplication
@@ -29,8 +31,7 @@ bool testMatMult(unsigned int repeats, bool verbose) {
     std::cerr << "Matrix multiplication functional test." << std::endl;
   }
 
-  // Create a random number generator and seed with current UNIX time.
-  RandomGenerator<long> rand((unsigned int) std::time(nullptr));
+  RandomGenerator<int64_t> rand(1337);
 
   bool pass = true;
 

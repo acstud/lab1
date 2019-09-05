@@ -3,13 +3,13 @@ project(acsmatmult)
 
 # Default sources
 set(DEFAULT_SOURCES
-       src/acsmatmult/utils/Matrix.hpp
-       src/acsmatmult/utils/RandomGenerator.hpp
-       src/acsmatmult/utils/Timer.hpp
-       src/acsmatmult/matmult.hpp
-       src/acsmatmult/experiments.hpp
-       src/acsmatmult/tests/test_matmult.hpp
-       src/acsmatmult/matmult-benchmark.cpp)
+    src/acsmatmult/utils/Matrix.h
+    src/acsmatmult/utils/RandomGenerator.h
+    src/acsmatmult/utils/Timer.h
+    src/acsmatmult/matmult.h
+    src/acsmatmult/experiments.h
+    src/acsmatmult/tests/test_matmult.h
+    src/acsmatmult/acsmatmult.cpp)
 
 set(STUDENT_SOURCES
         src/acsmatmult/students/experiments.cpp

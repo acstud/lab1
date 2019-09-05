@@ -16,8 +16,8 @@
 #include <iostream>
 #include <memory>
 
-#include "acsmatmult/tests/test_matmult.hpp"
-#include "acsmatmult/experiments.hpp"
+#include "acsmatmult/tests/test_matmult.h"
+#include "acsmatmult/experiments.h"
 
 /**
  * @brief Structure to pass program options to and run different experiments.

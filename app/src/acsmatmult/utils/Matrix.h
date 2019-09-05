@@ -20,7 +20,7 @@
 #include <random>
 #include <cstring>
 
-#include "acsmatmult/utils/RandomGenerator.hpp"
+#include "acsmatmult/utils/RandomGenerator.h"
 
 /**
  * @brief A matrix

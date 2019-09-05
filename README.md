@@ -302,7 +302,7 @@ make
 And run it with
 
 ```console
-./matmult-benchmark -h
+./acsmatmult -h
 ```
 
 To show help information.
@@ -325,7 +325,7 @@ And implement experiments as well after completing each of the following:
 
 ## What will you run to test if I've implemented everything correctly?
 
-`matmult-benchmark -t`
+`acsmatmult -t`
 
 However, be aware that we will only copy the [app/src/acsmatmult/students](app/src/acsmatmult/students)
 back into our own baseline project. So anything you change outside that

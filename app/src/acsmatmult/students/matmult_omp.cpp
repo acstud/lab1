@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "acsmatmult/matmult.hpp"
+#include "acsmatmult/matmult.h"
 #include <omp.h>  // OpenMP support.
 
 /* You may not remove these pragmas: */

@@ -19,7 +19,7 @@
 #include <CL/cl.h>
 #endif
 
-#include "acsmatmult/matmult.hpp"
+#include "acsmatmult/matmult.h"
 
 /* You may not remove these pragmas: */
 /*************************************/

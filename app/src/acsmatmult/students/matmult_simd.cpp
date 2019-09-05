@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "acsmatmult/matmult.hpp"
+#include "acsmatmult/matmult.h"
 #include <immintrin.h>  // Intel intrinsics for SSE/AVX.
 
 /* You may not remove these pragmas: */
