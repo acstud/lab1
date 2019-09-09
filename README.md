@@ -141,11 +141,12 @@ Log in to the `student-linux.tudelft.nl`:
 ```console
 ssh <netid>@student-linux.tudelft.nl
 ```
-From there, log in to __one__ of the login nodes:
+From there, log in to __one__ of the login nodes (Note that there is GPUs available on this login nodes):
 
 ```console
-ssh insy-login
-ssh sanger
+ssh login1.hpc.tudelft.nl
+ssh login2.hpc.tudelft.nl
+ssh login3.hpc.tudelft.nl
 ```
 
 While the course is busy and many people are building, you might want to switch
