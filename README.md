@@ -144,8 +144,8 @@ ssh <netid>@student-linux.tudelft.nl
 From there, log in to __one__ of the login nodes:
 
 ```console
-ssh insy-login
-ssh sanger
+ssh login1.hpc.tudelft.nl
+ssh login2.hpc.tudelft.nl
 ```
 
 While the course is busy and many people are building, you might want to switch
