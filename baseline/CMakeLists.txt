@@ -54,7 +54,7 @@ endif (OPENMP_FOUND)
 # OpenCL
 include(FindOpenCL)
 if (OPENCL_FOUND)
-    message("[ACS LAB] OpenCL found, enabling OpenMP functions.")
+    message("[ACS LAB] OpenCL found, enabling OpenCL functions.")
     find_package(OpenCL REQUIRED)
     include_directories(${OpenCL_INCLUDE_DIRS})
     target_link_libraries(${PROJECT_NAME} ${OpenCL_LIBRARIES})
