@@ -105,15 +105,15 @@ more matured tools are available for other types of platforms, such as FPGAs.
 ## Help! I don't have a GPU / CPU with AVX support / multicore processor.
 
 For this lab, all benchmarks must be performed on two nodes of
-[a cluster managed by the INSY department](http://insy-login.hpc.tudelft.nl/).
+[the HPC cluster](https://login.hpc.tudelft.nl/).
 It is recommended to read the cluster documentation before working on the 
 cluster.
 
 The names of these nodes are:
 
 ```
-insy-node05
-insy-node06
+ewi1
+ewi2
 ```
 
 Although possible, you do not necessarily have to debug all parts of your 
@@ -144,12 +144,12 @@ ssh <netid>@student-linux.tudelft.nl
 From there, log in to __one__ of the login nodes:
 
 ```console
-ssh insy-login
-ssh sanger
+ssh login1.hpc.tudelft.nl
+ssh login3.hpc.tudelft.nl
 ```
 
 While the course is busy and many people are building, you might want to switch
-to one or the other login server. However, the Sanger node is a bit older, and
+to one or the other login server. However, the `login3` node is a bit older, and
 has no support for AVX. You can still build programs that use AVX on it, 
 though.
 
@@ -192,9 +192,6 @@ GPU support on the nodes is enabled through the use of Environment Modules.
 [Environment Modules](http://modules.sourceforge.net/) can be used to quickly
 set up your system environment to, for example, change versions of software
 packages, etc...
-You can enable GPU support to build your programs even on the login servers,
-although they do not have a GPU themselves (so running your programs won't 
-work).
 
 ### Detecting available modules
 
@@ -204,7 +201,7 @@ module avail
 ```
 
 This will detect the available Environment Modules. It is recommended to use
-the latest CUDA version for this lab (9.2 at the time of writing).
+the latest CUDA version for this lab.
 
 ### Loading the CUDA/OpenCL module
 ```console
@@ -215,49 +212,7 @@ nvcc --version
 
 ## How do I install CMake?
 
-To build the baseline project, you need a 3.10+ version of CMake. This is not
-installed on the cluster by default.
-
-### Build CMake
-
-When you are logged in in your home directory on the cluster login node, 
-you can install CMake as follows:
-
-* Download CMake 3.10 or higher and untar it. Example:
-
-```console
-wget https://cmake.org/files/v3.12/cmake-3.12.1.tar.gz
-tar xf cmake-3.12.1.tar.gz
-```
-
-* Bootstrap CMake using the bootstrap script, while using your home directory
-`~/usr` as a prefix.
-
-```
-mkdir -p usr
-cd cmake-3.12.1/
-./bootstrap --prefix=~/usr -- -DCMAKE_BUILD_TYPE:STRING=Release
-```
-
-* Build the executable. This might take a while:
-
-`make`
-
-* Now that the sources have been compiled, you can install it in ~/usr by 
-running:
-
-`make install`
-
-* Add the `~/usr/bin path` to your `PATH` environment variable.
-
-`export PATH=~/usr/bin:${PATH}`
-
-If you append this line to `~/.bash_profile`, you do not need to type this 
-command after a fresh login.
-
-* Test to see if you have the right CMake version.
-
-`cmake --version`
+To build the baseline project, you need a 3.10+ version of CMake. This is available on the HPC cluster as `cmake3`.
 
 ## How do I edit files on the command line?
 
@@ -284,7 +239,7 @@ directory, you can run the following:
 ```console
 mkdir debug
 cd debug
-cmake ..
+cmake3 ..
 ```
 
 This will create a build directory, go into that directory, and lets CMake 
@@ -367,8 +322,7 @@ __HIGHLY RECOMMENDED__ resources are:
 ## Help! Some bug in the baseline project is preventing me from completing the lab!
 
 While we have tested the deployment of the baseline project, it is possible
-that some bugs exist, as the lab is relatively new, and this year is the first
-time we use the INSY cluster. Before you report this bug, try to make sure that
+that some bugs exist, as the lab is relatively new. Before you report this bug, try to make sure that
 it's an actual bug in the baseline and not in your own code.
 
 Once you have done that, do not panic. The lab instructors are reasonable
@@ -380,24 +334,7 @@ you should never count on it).
 
 In the CMake build scripts called [CMakeLists.txt](baseline/CMakeLists.txt), some scripts 
 are included that attempt to find OpenCL support. Once you've loaded the CUDA 
-module, CMake will probably still not detect OpenCL.
-
-If CMake cannot find OpenCL, the CMake script will complain about it as 
-follows: "OpenCL could not be found, disabling OpenCL functions."
-
-Also, it will not include the OpenCL examples in your build. This is done such
-that you can still compile and run the application if you are on a system that
-doesn't have OpenCL support. For example, when you are debugging the AVX or 
-OpenMP part on your laptop.
-
-On the cluster, the script is able
-to properly find CUDA, but not OpenCL. We have to help it a little bit by 
-pointing it to the right directories.
-
-```console
-cmake .. -DOpenCL_INCLUDE_DIR=/opt/insy/cuda/<version>/targets/x86_64-linux/include \
-         -DOpenCL_LIBRARY=/opt/insy/cuda/<version>/targets/x86_64-linux/lib/libOpenCL.so
-```
+module, CMake will detect OpenCL.
 
 ## How do I submit a job to one of the GPU cluster nodes?
 
@@ -407,7 +344,7 @@ jobs are bash scripts.
 
 When you are on the cluster, you can submit jobs using the sbatch command.
 An more detailed explanation is recommended reading material, and can be found
-[here](http://insy-login.hpc.tudelft.nl/).
+[here](https://login.hpc.tudelft.nl/).
 
 You __must__, however, use a specific partition (a group of nodes, let's say) and
 a specific quality-of-service (a set of requirements on the resources you can
@@ -415,7 +352,7 @@ request from the cluster).
 
 These are:
 ```console
---partition=ee4c07
+--partition=stud-ewi
 --qos=ee4c07
 ```
 
@@ -425,7 +362,7 @@ arguments to sbatch (or you must put them in a job script, see below).
 Example:
 
 ```console
-sbatch --partition=ee4c07 --qos=ee4c07 <job script.sh>
+sbatch --partition=stud-ewi --qos=ee4c07 <job script.sh>
 ```
 
 ## Where is the output?
@@ -440,7 +377,7 @@ cat slurm-1234.out
 ## Do you have a template for a job script?
 ```console
 #!/bin/sh
-#SBATCH --partition=ee4c07
+#SBATCH --partition=stud-ewi
 #SBATCH --qos=ee4c07
 #SBATCH --time=0:01:00
 #SBATCH --ntasks=1
@@ -452,7 +389,7 @@ cat slurm-1234.out
 srun <your command>
 ```
 
-Please consult the INSY cluster presentation for more information about those options. 
+Please consult the HPC cluster presentation for more information about those options. 
 If you don't know what you're doing, do not change anything.
 
 Please be aware that if you are going to run the OpenMP benchmark, you might want to
@@ -462,7 +399,7 @@ QoS.
 ## I am editing on my local machine! How do I copy files to the cluster?
 
 Upload the sources to your home directory on `student-linux.tudelft.nl`.
-This is in sync with the INSY cluster nodes.
+This is in sync with the HPC cluster nodes.
 
 For example, when you are in the lab1 baseline project directory, you can use 
 `scp` with the recursive option `-r` to copy the whole `src` directory over at 
@@ -472,7 +409,7 @@ once:
 scp -r src <netid>@student-linux.tudelft.nl:~/path/to/your/src
 ```
 
-Then you can go into a second terminal that is logged in to an INSY cluster
+Then you can go into a second terminal that is logged in to an HPC cluster
 login node, build the sources there and submit a batch job to run it on a 
 node with GPU capabilities.
 
@@ -513,7 +450,7 @@ history
 You could even pipe it into grep to search your history, example:
 
 ```console
-history | grep cmake
+history | grep cmake3
 ```
 
 ## Is there a template for the lab report?
