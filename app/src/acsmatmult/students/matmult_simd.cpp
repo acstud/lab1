@@ -12,15 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "../matmult.hpp"
-
-// Intel intrinsics for SSE/AVX:
-#include <immintrin.h>
+#include "acsmatmult/matmult.h"
+#include <immintrin.h>  // Intel intrinsics for SSE/AVX.
 
 /* You may not remove these pragmas: */
 /*************************************/
 #pragma GCC push_options
-#pragma GCC optimize ("O1")
+#pragma GCC optimize ("O0")
 /*************************************/
 
 typedef union _avxd {

@@ -20,7 +20,7 @@
 #include <random>
 #include <cstring>
 
-#include "RandomGenerator.hpp"
+#include "acsmatmult/utils/RandomGenerator.h"
 
 /**
  * @brief A matrix
@@ -28,33 +28,22 @@
  */
 template<typename T>
 struct Matrix {
-  /// @brief Number of rows in this matrix
-  size_t rows = 0;
-
-  /// @brief Number of columns in this matrix
-  size_t columns = 0;
-
-  /// @brief Raw data buffer of this matrix
-  std::shared_ptr<T> values = nullptr;
+  size_t rows = 0;  ///< Number of rows in this matrix
+  size_t columns = 0;  ///< Number of columns in this matrix
+  std::shared_ptr<T> values = nullptr;  ///< Raw data buffer of this matrix
 
   /**
-   * Construct a new matrix
+   * @brief Construct a new matrix
    * @param rows The number of rows of the matrix
    * @param columns The number of columns of the matrix
    */
   Matrix<T>(size_t rows, size_t columns) : rows(rows), columns(columns) {
     // Make sure the dimensions are valid
-    if ((rows > 0) && (columns > 0)) {
-      // Allocate space, zero initialize it and store matrix using a smart pointer
-      values = std::shared_ptr<T>(new T[rows * columns](), std::default_delete<T[]>());
-
-      // Check if calloc worked.
-      if (values == nullptr) {
-        throw std::runtime_error("Unable to allocate memory for matrix.");
-      }
-    } else {
+    if ((rows <= 0) && (columns <= 0)) {
       throw std::domain_error("Matrix dimensions must be positive integers.");
     }
+    // Allocate space, zero initialize it and store matrix using a smart pointer
+    values = std::shared_ptr<T>(new T[rows * columns](), std::default_delete<T[]>());
   }
 
   /// @brief Return a value from the 1-dimensional backing array at index \p idx.
@@ -63,12 +52,12 @@ struct Matrix {
   }
 
   /// @brief Return element matrix element (row+1,column+1), in the mathematical sense
-  inline T &operator()(size_t row, size_t column) {
+  inline T &operator()(size_t row, size_t column) const {
     return values.get()[row * columns + column];
   }
 
 #pragma GCC push_options
-#pragma GCC optimize ("O1")
+#pragma GCC optimize ("O0")
 
   /**
  * @brief Multiply two matrices.
@@ -81,7 +70,7 @@ struct Matrix {
  * @param b The right matrix
  * @return A matrix C where C=AxB
  */
-  static Matrix<T> multiply(Matrix<T> &a, Matrix<T> &b) {
+  static Matrix<T> multiply(const Matrix<T> &a, const Matrix<T> &b) {
     // Test if matrices can be multiplied.
     if (a.columns != b.rows) {
       throw std::domain_error("Matrix dimensions do not allow matrix-multiplication.");
@@ -116,7 +105,7 @@ struct Matrix {
 #pragma GCC pop_options
 
   /// @brief Shorthand for multiplying two matrices using multiply()
-  Matrix<T> operator*(Matrix<T> &rhs) {
+  Matrix<T> operator*(const Matrix<T> &rhs) {
     return multiply(*this, rhs);
   }
 
@@ -126,7 +115,7 @@ struct Matrix {
    * @param rhs The other matrix.
    * @return True if it is approximately equal, false otherwise.
    */
-  bool operator%=(Matrix<T> &rhs) {
+  bool operator%=(const Matrix<T> &rhs) {
     if (rows != rhs.rows)
       return false;
     if (columns != rhs.columns)
@@ -149,8 +138,8 @@ struct Matrix {
     return true;
   }
 
-  /// @brief Randomize the elements in this matrix.
-  Matrix *randomize(int seed=0) {
+  /// @brief Randomize the elements in this matrix, with some seed.
+  Matrix *randomize(int seed = 0) {
 
     RandomGenerator<T> gen(seed);
     // Fill the array with random values

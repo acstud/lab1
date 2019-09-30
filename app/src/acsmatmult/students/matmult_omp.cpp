@@ -12,15 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// OpenMP:
-#include <omp.h>
-
-#include "../matmult.hpp"
+#include "acsmatmult/matmult.h"
+#include <omp.h>  // OpenMP support.
 
 /* You may not remove these pragmas: */
 /*************************************/
 #pragma GCC push_options
-#pragma GCC optimize ("O1")
+#pragma GCC optimize ("O0")
 /*************************************/
 
 Matrix<float> multiplyMatricesOMP(Matrix<float> a,

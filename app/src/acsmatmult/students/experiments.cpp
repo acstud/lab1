@@ -1,9 +1,21 @@
+// Copyright 2018 Delft University of Technology
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#include "acsmatmult/experiments.h"
 #include <fstream>
-
-#include "../utils/Timer.hpp"
-#include "../utils/Matrix.hpp"
-
-#include "../experiments.hpp"
+#include "acsmatmult/utils/Timer.h"
+#include "acsmatmult/utils/Matrix.h"
 
 void generateHeader(std::stringstream &ss,
                     const std::vector<std::string> &headers,
@@ -26,7 +38,7 @@ void dump(std::stringstream &ss, std::ostream &s0, std::ostream &s1) {
   ss.str("");
 }
 
-void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeats, std::string file_out) {
+void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeats, const std::string &file_out) {
   std::cout << "Vector inner product benchmark." << std::endl;
   // Attempt to open the file for writing
   std::ofstream fos(file_out);
@@ -41,7 +53,10 @@ void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeat
   Timer t;
 
   // Dump a header
-  generateHeader(ss, {"Experiment", "Matrix size", "Construct (s)", "Randomize (s)"}, {"Float", "Double"}, repeats);
+  generateHeader(ss,
+                 {"Experiment", "Matrix size", "Construct (s)", "Randomize (s)"},
+                 {"Float", "Double"},
+                 repeats);
   dump(ss, fos, std::cout);
 
   // Iterate over each experiment
@@ -60,13 +75,13 @@ void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeat
     ss << std::setw(15) << (std::to_string(mat_rows) + ",") << std::flush;
 
     // Create the matrices
-    t.start(); // Start the timer.
-    auto mat_a = Matrix<float>(mat_cols, mat_rows); // Make a matrix
-    auto mat_b = Matrix<float>(mat_rows, mat_cols); // And another one, transposed.
-    auto mat_c = Matrix<double>(mat_cols, mat_rows); // And another one, doubles.
-    auto mat_d = Matrix<double>(mat_rows, mat_cols); // And another one, transposed.
-    t.stop(); // Stop the timer.
-    t.report(ss); // Put interval on stdout
+    t.start();  // Start the timer.
+    auto mat_a = Matrix<float>(mat_cols, mat_rows);  // Make a matrix
+    auto mat_b = Matrix<float>(mat_rows, mat_cols);  // And another one, transposed.
+    auto mat_c = Matrix<double>(mat_cols, mat_rows);  // And another one, doubles.
+    auto mat_d = Matrix<double>(mat_rows, mat_cols);  // And another one, transposed.
+    t.stop();  // Stop the timer.
+    t.report(ss);  // Put interval on stdout
 
     // Randomize their contents
     t.start();
@@ -82,10 +97,10 @@ void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeat
 
     // Repeat the floats experiment repeats times.
     for (unsigned int r = 0; r < repeats; r++) {
-      t.start(); // Start the timer.
+      t.start();  // Start the timer.
       // Multiply the matrices
       auto mat_result = Matrix<float>::multiply(mat_a, mat_b);
-      t.stop(); // Stop the timer.
+      t.stop();  // Stop the timer.
       t.report(ss);
 
       // Dump the repeat outcome
@@ -103,11 +118,11 @@ void runVectorExperiment(unsigned int min, unsigned int max, unsigned int repeat
   }
 }
 
-void runMatrixExperiment(unsigned int min, unsigned int max, unsigned int repeats, std::string file_out) {
+void runMatrixExperiment(unsigned int min, unsigned int max, unsigned int repeats, const std::string &file_out) {
   std::cout << "Baseline matrix multiplication experiment not yet implemented." << std::endl;
 }
 
-void runMatrixExperimentSIMD(unsigned int min, unsigned int max, unsigned int repeats, std::string file_out) {
+void runMatrixExperimentSIMD(unsigned int min, unsigned int max, unsigned int repeats, const std::string &file_out) {
   std::cout << "SIMD matrix multiplication experiment not yet implemented." << std::endl;
 }
 
@@ -115,10 +130,10 @@ void runMatrixExperimentOMP(unsigned int min,
                             unsigned int max,
                             unsigned int threads,
                             unsigned int repeats,
-                            std::string file_out) {
+                            const std::string &file_out) {
   std::cout << "OpenMP matrix multiplication experiment not yet implemented." << std::endl;
 }
 
-void runMatrixExperimentOCL(unsigned int min, unsigned int max, unsigned int repeats, std::string file_out) {
+void runMatrixExperimentOCL(unsigned int min, unsigned int max, unsigned int repeats, const std::string &file_out) {
   std::cout << "OpenCL matrix multiplication experiment not yet implemented." << std::endl;
 }

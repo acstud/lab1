@@ -14,8 +14,10 @@
 
 #pragma once
 
+#include <vector>
 #include <iostream>
 #include <iomanip>
+#include "acsmatmult/matmult.h"
 
 /// @brief Generate a readable header into a stringstream.
 void generateHeader(std::stringstream &ss,
@@ -30,31 +32,31 @@ void dump(std::stringstream &ss, std::ostream &s0, std::ostream &s1);
 void runVectorExperiment(unsigned int from,
                          unsigned int to,
                          unsigned int repeats = 1,
-                         std::string file_out = "vec.csv");
+                         const std::string& file_out = "vec.csv");
 
 /* STUDENTS SHOULD IMPLEMENT THE FOLLOWING EXPERIMENTS: */
 /// @brief Perform an experiment where two matrices are multiplied.
 void runMatrixExperiment(unsigned int from,
                          unsigned int to,
                          unsigned int repeats = 1,
-                         std::string file_out = "mat.csv");
+                         const std::string& file_out = "mat.csv");
 
 /// @brief Perform an experiment where two matrices are multiplied using vector extensions
 void runMatrixExperimentSIMD(unsigned int from,
                              unsigned int to,
                              unsigned int repeats = 1,
-                             std::string file_out = "mat_simd.csv");
+                             const std::string& file_out = "mat_simd.csv");
 
 /// @brief Perform an experiment where two matrices are multiplied using OpenMP
 void runMatrixExperimentOMP(unsigned int from,
                             unsigned int to,
                             unsigned int threads = 1,
                             unsigned int repeats = 1,
-                            std::string file_out = "mat_omp.csv");
+                            const std::string& file_out = "mat_omp.csv");
 
 /// @brief Perform an experiment where two matrices are multiplied using OpenCL
 void runMatrixExperimentOCL(unsigned int from,
                             unsigned int to,
                             unsigned int repeats = 1,
-                            std::string file_out = "mat_ocl.csv");
+                            const std::string& file_out = "mat_ocl.csv");
 
