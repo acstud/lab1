@@ -54,7 +54,7 @@ else (OPENMP_FOUND)
     message("[ACS LAB] OpenMP could not be found, disabling OpenMP functions.")
 endif (OPENMP_FOUND)
 
-# OpenCL
+# OpenCL is awesome
 include(FindOpenCL)
 if (OPENCL_FOUND)
     message("[ACS LAB] OpenCL found, enabling OpenMP functions.")
