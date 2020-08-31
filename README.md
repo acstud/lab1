@@ -352,7 +352,7 @@ request from the cluster).
 
 These are:
 ```console
---partition=stud-ewi
+--partition=ee4c07
 --qos=ee4c07
 ```
 
@@ -362,7 +362,7 @@ arguments to sbatch (or you must put them in a job script, see below).
 Example:
 
 ```console
-sbatch --partition=stud-ewi --qos=ee4c07 <job script.sh>
+sbatch --partition=ee4c07 --qos=ee4c07 <job script.sh>
 ```
 
 ## Where is the output?
