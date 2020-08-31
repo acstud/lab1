@@ -1,4 +1,4 @@
-# Advanced Computing Systems 2018-2019 Lab 1 - Matrix Multiplication
+# Advanced Computing Systems 2020-2021 Lab 1 - Matrix Multiplication
 
 This repository contains all files and explanations needed to perform
 the first lab of the EE4C07 - Advanced Computing Systems course at the
@@ -377,13 +377,15 @@ cat slurm-1234.out
 ## Do you have a template for a job script?
 ```console
 #!/bin/sh
-#SBATCH --partition=stud-ewi
+#SBATCH --account=stud-ewi-crs-ee4c07 
+#SBATCH --partition=ee4c07 
 #SBATCH --qos=ee4c07
+#SBATCH --reservation=ee4c07
 #SBATCH --time=0:01:00
 #SBATCH --ntasks=1
+#SBATCH --gres=gpu
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=1024
-#SBATCH --gres=gpu
 #SBATCH --mail-type=FAIL
 
 srun <your command>
@@ -480,11 +482,7 @@ this.
 
 ## How do I make plots?
 
-It is recommended to use a decent plotting tool (e.g. not Microsoft Excel or 
-LibreOffice Calc). Some good plots can be made with free tools such as matplotlib
-in Python. You could also use MATLAB or Scilab.
-
-There is [an IPython Notebook with an example available here](report/plotting_tutorial.ipynb).
+Make sure you generate vectorized PDF figures and plots as much as possible, and avoid bit-mapped formats like PNG and JPG. This way, the quality of your figures will increase, while their storage size in Kilo Bytes will decrease.
 
 ## What ranges should I measure in terms of problem size / run-time?
 
@@ -608,14 +606,7 @@ One of the TA's / course instructors will answer you A.S.A.P.
 
 ## Can I talk face-to-face?
 
-Yes, and this is preferred and faster than e-mailing.
-You can always drop by (open door policy):
-
-* TA's : HB.10.230/240
-* Course Instructor : HB.10.030
-
-However, if you want to make sure that we are available, you should make
-an appointment.
+This year, the lab sessions will be carried out online using the Discord application. Please use the following link to join our ACS Discord server "https://discord.gg/PCCkAeb”
 
 ## Commonly seen OpenCL error codes
 
