@@ -104,17 +104,10 @@ more matured tools are available for other types of platforms, such as FPGAs.
 
 ## Help! I don't have a GPU / CPU with AVX support / multicore processor.
 
-For this lab, all benchmarks must be performed on two nodes of
+For this lab, all benchmarks must be performed on one node of
 [the HPC cluster](https://login.hpc.tudelft.nl/).
 It is recommended to read the cluster documentation before working on the 
 cluster.
-
-The names of these nodes are:
-
-```
-ewi1
-ewi2
-```
 
 Although possible, you do not necessarily have to debug all parts of your 
 application on these machines. It is recommended to first functionally test and
