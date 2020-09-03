@@ -358,7 +358,7 @@ arguments to sbatch (or you must put them in a job script, see below).
 Example:
 
 ```console
-sbatch --partition=ee4c07 --qos=ee4c07 <job script.sh>
+sbatch --partition=ee4c07 --qos=ee4c07 --reservation=ee4c07 --account=stud-ewi-crs-ee4c07 <job script.sh>
 ```
 
 ## Where is the output?
