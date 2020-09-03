@@ -371,6 +371,9 @@ cat slurm-1234.out
 ```
 
 ## Do you have a template for a job script?
+
+Allocating both CPU and GPU resurces on node.
+
 ```console
 #!/bin/sh
 #SBATCH --account=stud-ewi-crs-ee4c07 
@@ -380,6 +383,23 @@ cat slurm-1234.out
 #SBATCH --time=0:01:00
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=1024
+#SBATCH --mail-type=FAIL
+
+srun <your command>
+```
+
+Allocating CPU resurces only on node.
+
+```console
+#!/bin/sh
+#SBATCH --account=stud-ewi-crs-ee4c07 
+#SBATCH --partition=ee4c07 
+#SBATCH --qos=ee4c07
+#SBATCH --reservation=ee4c07
+#SBATCH --time=0:01:00
+#SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=1024
 #SBATCH --mail-type=FAIL
