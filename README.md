@@ -347,6 +347,9 @@ These are:
 ```console
 --partition=ee4c07
 --qos=ee4c07
+--reservation=ee4c07
+--account=stud-ewi-crs-ee4c07 
+ 
 ```
 
 When you want to submit a script to SLURM, you must always supply these
