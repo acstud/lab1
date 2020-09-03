@@ -498,6 +498,10 @@ this.
 
 ## How do I make plots?
 
+It is recommended to use a decent plotting tool (e.g. not Microsoft Excel or LibreOffice Calc). Some good plots can be made with free tools such as matplotlib in Python. You could also use MATLAB or Scilab.
+
+There is an [IPython Notebook](https://github.com/tahashmi/lab1/blob/master/report/plotting_tutorial.ipynb) with an example available here.
+
 Make sure you generate vectorized PDF figures and plots as much as possible, and avoid bit-mapped formats like PNG and JPG. This way, the quality of your figures will increase, while their storage size in Kilo Bytes will decrease.
 
 ## What ranges should I measure in terms of problem size / run-time?
