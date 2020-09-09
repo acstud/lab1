@@ -531,12 +531,14 @@ Only submissions that follow these requirements are accepted:
   * Example: New Document by n00bk1ng_94.pdf - denied.
   * Note the use of two positions for the group number.
 
-* __All your source code has been compressed into a tar.gz archive__
+* __All your source code has been compressed into a .zip archive__
   * Please make sure to clean your build directories before archiving.
   
-* __The file name of your source code archive is GROUP_XX_netid0_netid1_netid2.tar.gz__
-  * Example: GROUP_01_alee_bzhang_cwang.tar.gz - accepted.
-  * Example: GROUP_13_dnguyen_egarcia_fgonzales.zip - denied.
+* __Please verify your compressed code repository 
+  * Please make sure your to be submitted code is being compiled and run perfectly with baseline project, you can check the following instructions.
+  
+* __The file name of your source code archive is GROUP_XX_netid0_netid1_netid2.zip__
+  * Example: GROUP_01_alee_bzhang_cwang.zip - accepted.
   * Example: acslab1.tar.gz - denied.
   
 * __They have been uploaded to Brightspace before the deadline has expired.__
