@@ -275,7 +275,7 @@ And implement experiments as well after completing each of the following:
 
 `matmult-benchmark -t`
 
-However, be aware that we will only copy the [baseline/src/students](baseline/src/students)
+However, be aware that we will only copy the [baseline/src/students](https://github.com/acstud/lab1/tree/master/app/src/acsmatmult/students)
 back into our own baseline project. So anything you change outside that
 file will no work for us. Sorry!
 
@@ -283,7 +283,7 @@ file will no work for us. Sorry!
 
 You can find them here:
 
-[baseline/src/students](baseline/src/students)
+[baseline/src/students](https://github.com/acstud/lab1/tree/master/app/src/acsmatmult/students)
 
 ## Can I change any other files?
 
