@@ -534,8 +534,8 @@ Only submissions that follow these requirements are accepted:
 * __All your source code has been compressed into a .zip archive__
   * Please make sure to clean your build directories before archiving.
   
-* __Please verify your compressed code repository 
-  * Please make sure your to be submitted code is being compiled and run perfectly with baseline project, you can check the following instructions.
+* __Please verify your compressed code repository__ 
+  * Please make sure your to be submitted code is being compiled and run perfectly with baseline project, you can check the [following](https://github.com/acstud/lab1/blob/master/code%20submission%20instructions.sh) instructions.
   
 * __The file name of your source code archive is GROUP_XX_netid0_netid1_netid2.zip__
   * Example: GROUP_01_alee_bzhang_cwang.zip - accepted.
