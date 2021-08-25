@@ -628,7 +628,7 @@ One of the TA's / course instructors will answer you A.S.A.P.
 
 ## Can I talk face-to-face?
 
-This year, the lab sessions will be carried out online using the Discord application. Please use the following link to join our ACS Discord server "https://discord.gg/PCCkAeb”
+This year, the lab sessions will be carried out online using the Discord application. Please use the following link to join our [ACS Discord server](https://discord.gg/EMNm2pGydx)
 
 ## Commonly seen OpenCL error codes
 
