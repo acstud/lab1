@@ -275,7 +275,7 @@ And implement experiments as well after completing each of the following:
 
 `acsmatmult -t`
 
-However, be aware that we will only copy the [app/src/students](app/src/acsmatmult/students)
+However, be aware that we will only copy the [app/src/acsmatmult/students](app/src/acsmatmult/students)
 back into our own baseline project. So anything you change outside that
 file will no work for us. Sorry!
 
@@ -283,7 +283,7 @@ file will no work for us. Sorry!
 
 You can find them here:
 
-[app/src/students](app/src/acsmatmult/students)
+[app/src/acsmatmult/students](app/src/acsmatmult/students)
 
 ## Can I change any other files?
 
