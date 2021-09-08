@@ -345,7 +345,7 @@ request from the cluster).
 
 These are:
 ```console
---partition=ee4c07
+--partition=stud-ewi
 --qos=ee4c07
 --reservation=ee4c07
 --account=stud-ewi-crs-ee4c07 
@@ -358,7 +358,7 @@ arguments to sbatch (or you must put them in a job script, see below).
 Example:
 
 ```console
-sbatch --partition=ee4c07 --qos=ee4c07 --reservation=ee4c07 --account=stud-ewi-crs-ee4c07 <job script.sh>
+sbatch --partition=stud-ewi --qos=ee4c07 --reservation=ee4c07 --account=stud-ewi-crs-ee4c07 <job script.sh>
 ```
 
 ## Where is the output?
@@ -377,7 +377,7 @@ Allocating both CPU and GPU resurces on node.
 ```console
 #!/bin/sh
 #SBATCH --account=stud-ewi-crs-ee4c07 
-#SBATCH --partition=ee4c07 
+#SBATCH --partition=stud-ewi 
 #SBATCH --qos=ee4c07
 #SBATCH --reservation=ee4c07
 #SBATCH --time=0:01:00
@@ -395,7 +395,7 @@ Allocating CPU resurces only on node.
 ```console
 #!/bin/sh
 #SBATCH --account=stud-ewi-crs-ee4c07 
-#SBATCH --partition=ee4c07 
+#SBATCH --partition=stud-ewi 
 #SBATCH --qos=ee4c07
 #SBATCH --reservation=ee4c07
 #SBATCH --time=0:01:00
