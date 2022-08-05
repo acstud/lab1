@@ -1,7 +1,7 @@
-# Advanced Computing Systems 2020-2021 Lab 1 - Matrix Multiplication
+# Advanced Computing Systems 2022-2023 Lab 1 - Matrix Multiplication
 
 This repository contains all files and explanations needed to perform
-the first lab of the EE4C07 - Advanced Computing Systems course at the
+the first lab of the CESE4010 - Advanced Computing Systems course at the
 Delft University of Technology.
 
 ## What do I have to do for Lab 1?
@@ -83,7 +83,7 @@ to the x86 ISA to perform operations on vectors. For example, they make it
 possible to not just add two single-precision floating point numbers with one
 instruction, but multiple single-precision floating point numbers with one
 instruction, at the same time. This can speed up all sorts of algorithms 
-begin run on a CPU. These extensions are commonly found in microprocessors used
+executed on a CPU. These extensions are commonly found in microprocessors used
 in laptops to workstations to HPC clusters. It is important to know that they 
 are available and how to use them.
 
@@ -99,7 +99,7 @@ OpenCL stands for Open Compute Language. This is a standard that is meant to
 provide the means of writing portable programs for heterogeneous systems, such
 as computers that have a GPU or FPGA. A similar proprietary framework called
 CUDA exists. CUDA is very similar to OpenCL, although it runs well mainly on 
-NVIDIA GPUs. While OpenCL enjoys less matured tooling for NVIDIA GPUs itself,
+NVIDIA GPUs. While OpenCL enjoys less matured tooling for NVIDIA GPUs,
 more matured tools are available for other types of platforms, such as FPGAs.
 
 ## Help! I don't have a GPU / CPU with AVX support / multicore processor.
@@ -142,9 +142,11 @@ ssh login3.hpc.tudelft.nl
 ```
 
 While the course is busy and many people are building, you might want to switch
-to one or the other login server. However, the `login3` node is a bit older, and
-has no support for AVX. You can still build programs that use AVX on it, 
-though.
+to one or the other login server. However, remember that the login servers should not be 
+used to run benchmarking workloads; you may only use them to test your code with very 
+small example data (if your code runs for longer than a second on the login server, 
+please [kill the process you started](https://www.linuxfoundation.org/blog/classic-sysadmin-how-to-kill-a-process-from-the-command-line/)). 
+
 
 ## What sort of applications am I allowed to run on the cluster?
 
@@ -219,8 +221,11 @@ up with your TU Delft e-mail account.
 
 ## Where do I get the baseline project?
 
+If you clone the Lab1 GitHub repo, you can find the baseline project in the `app` directory.
+
 ```console
 git clone https://github.com/acstud/lab1.git
+cd lab1/app
 ```
 
 ## How do I compile and run the baseline project?
@@ -235,13 +240,13 @@ cd debug
 cmake3 ..
 ```
 
-This will create a build directory, go into that directory, and lets CMake 
+These commands will create a build directory called `debug`, go into that directory, and will let CMake 
 create the project files there. Note that the CMake script will exclude files
 from the build where you are supposed to implement technologies that your 
 systems doesnt have any support for (it will complain about this on the 
 command line).
 
-Now you can build it with:
+Now you can build the project with:
 
 ```console
 make
@@ -257,7 +262,7 @@ To show help information.
 
 ## What should I do with the baseline project?
 
-You should read the baseline source code and figure out how to program works.
+You should read the baseline source code and figure out how the program works.
 The first thing you must benchmark for your report is the baseline vector
 multiplication (also see the [the LaTeX report template](report/template.tex)).
 
@@ -271,13 +276,13 @@ And implement experiments as well after completing each of the following:
 * Implement matrix multiplication on multiple cores using OpenMP.
 * Implement matrix multiplication on a GPU using OpenCL.
 
-## What will you run to test if I've implemented everything correctly?
+## What will the TAs run to test if I've implemented everything correctly?
 
 `acsmatmult -t`
 
 However, be aware that we will only copy the [app/src/acsmatmult/students](app/src/acsmatmult/students)
 back into our own baseline project. So anything you change outside that
-file will no work for us. Sorry!
+file will not work for us. Sorry!
 
 ## Where are the files that I have to implement?
 
@@ -315,7 +320,7 @@ __HIGHLY RECOMMENDED__ resources are:
 ## Help! Some bug in the baseline project is preventing me from completing the lab!
 
 While we have tested the deployment of the baseline project, it is possible
-that some bugs exist, as the lab is relatively new. Before you report this bug, try to make sure that
+that some bugs exist. Before you report this bug, try to make sure that
 it's an actual bug in the baseline and not in your own code.
 
 Once you have done that, do not panic. The lab instructors are reasonable
@@ -332,11 +337,11 @@ module, CMake will detect OpenCL.
 ## How do I submit a job to one of the GPU cluster nodes?
 
 The cluster uses SLURM to manage the cluster resources and to schedule jobs on
-cluster nodes. You can use the "sbatch" command to submit jobs. Usually, these
+cluster nodes. You can use the `sbatch` command to submit jobs. Usually, these
 jobs are bash scripts. 
 
 When you are on the cluster, you can submit jobs using the sbatch command.
-An more detailed explanation is recommended reading material, and can be found
+A more detailed explanation is recommended reading material, and can be found
 [here](https://login.hpc.tudelft.nl/).
 
 You __must__, however, use a specific partition (a group of nodes, let's say) and
@@ -363,7 +368,7 @@ sbatch --partition=stud-ewi --qos=ee4c07 --reservation=ee4c07 --account=stud-ewi
 
 ## Where is the output?
 
-In a file called slurm-<jobid>.out. You can easily show the output using, 
+In a file called `slurm-<jobid>.out`. You can easily show the output using, 
 for example:
 
 ```console
@@ -457,9 +462,11 @@ chmod +x <script name>.sh
 ./<script name>.sh
 ```
 
-From now on, the lab will be less tiring!
+By automating the development flow using scripts, the lab will be less tiring!
 
 ## Can I see a list of commands that I typed previously?
+
+Yes, use:
 
 ```console
 history
@@ -473,7 +480,7 @@ history | grep cmake3
 
 ## Is there a template for the lab report?
 
-Yes. This is a [the LaTeX template](report/template.tex) and it is actually
+Yes. This is [the LaTeX template](report/template.tex) and it is actually
 __mandatory__ to use this template. As you can read in the next question, 
 any lab reports that do not use this template are denied. This is to make 
 sure we can correct your lab reports quickly. In this way, you will receive
@@ -535,7 +542,7 @@ Only submissions that follow these requirements are accepted:
   * Please make sure to clean your build directories before archiving.
   
 * __Please verify your compressed code repository__ 
-  * Please make sure your to be submitted code is being compiled and run perfectly with baseline project, you can check the [following](https://github.com/acstud/lab1/blob/master/code%20submission%20instructions.sh) instructions.
+  * Please make sure your to be submitted code is being compiled and run perfectly with the baseline project, you can check the [following](https://github.com/acstud/lab1/blob/master/code%20submission%20instructions.sh) instructions.
   
 * __The file name of your source code archive is GROUP_XX_netid0_netid1_netid2.zip__
   * Example: GROUP_01_alee_bzhang_cwang.zip - accepted.
@@ -548,12 +555,12 @@ Only submissions that follow these requirements are accepted:
   
   * Brightspace was down? E-mail your report on time to 
     [acs-ewi@tudelft.nl](mailto:acs-ewi@tudelft.nl).
-    * Example: deadline is Monday 17th of September, 09:00 AM CEST. 
+    * Example: deadline is Monday Sep 17, 09:00 AM CEST. 
     You have taken ample time to finish the report without having to worry,
     and so your clock shows 08:59:59. You hit the send button. The course
     instructors check the time on the e-mail. It says 09:00:00 AM CEST. 
     The report is on time.
-    * Example: deadline is Monday 17th of September, 09:00 AM CEST. 
+    * Example: deadline is Monday Sep 17, 09:00 AM CEST. 
         You have taken ample time to finish the report without having to worry,
         and so your clock shows 08:59:59. You hit the send button. The course
         instructors check the time on the e-mail. It says 09:00:01 AM CEST. 
@@ -586,7 +593,7 @@ Therefore, observe the following examples:
 
 * You find code that exactly solves one of the parts of the lab. You blindly
 copy-paste the code without modifications. After we talk to you about this, 
-it seems like you can not explain the code either. You also haven't included
+it seems like you cannot explain the code either. You also haven't included
 a source. 
   * Our verdict: plagiarism.
   * Reason: it is not your work, so we cannot grade you
@@ -594,7 +601,7 @@ a source.
   
 * You find code that exactly solves one of the parts of the lab. You blindly
 copy-paste the code without modifications. After we talk to you about this, 
-it seems like you can not explain the code either. You have included a 
+it seems like you cannot explain the code either. You have included a 
 source.
   * Our verdict: not formally plagiarism, as you have stated your source,
    but your grade is zero because you didn't learn anything.
@@ -628,7 +635,7 @@ One of the TA's / course instructors will answer you A.S.A.P.
 
 ## Can I talk face-to-face?
 
-This year, the lab sessions will be carried out online using the Discord application. Please use the following link to join our [ACS Discord server](https://discord.gg/EMNm2pGydx)
+This year, the lab sessions will be carried out online using the Discord application. Please use the following link to join our [ACS Discord server](https://discord.gg/7unmM9cG33)
 
 ## Commonly seen OpenCL error codes
 
