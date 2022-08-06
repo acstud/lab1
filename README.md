@@ -147,7 +147,7 @@ used to run benchmarking workloads; you may only use them to test your code with
 small example data (if your code runs for longer than a second on the login server, 
 please [kill the process you started](https://www.linuxfoundation.org/blog/classic-sysadmin-how-to-kill-a-process-from-the-command-line/)). 
 In order to run benchmarking workloads, submit them to the GPU cluster nodes as discussed in the [How do I submit a job to one of the GPU cluster nodes?](
-##-how-do-i-submit-a-job-to-one-of-the-gpu-cluster-nodes?) section below.
+#how-do-i-submit-a-job-to-one-of-the-gpu-cluster-nodes) section below.
 
 
 ## What sort of applications am I allowed to run on the cluster?
