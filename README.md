@@ -144,7 +144,7 @@ ssh login3.hpc.tudelft.nl
 While the course is busy and many people are building, you might want to switch
 to one or the other login server. However, remember that the login servers should not be 
 used to run benchmarking workloads; you may only use them to test your code with very 
-small example data (if your code runs for longer than a second on the login server, 
+small example data (if your code runs for longer than a couple of seconds on the login server, 
 please [kill the process you started](https://www.linuxfoundation.org/blog/classic-sysadmin-how-to-kill-a-process-from-the-command-line/)). 
 In order to run benchmarking workloads, submit them to the GPU cluster nodes as discussed in the "[How do I submit a job to one of the GPU cluster nodes?](
 #how-do-i-submit-a-job-to-one-of-the-gpu-cluster-nodes)" section below.
