@@ -352,10 +352,10 @@ request from the cluster).
 
 These are:
 ```console
---partition=stud-ewi
---qos=ee4c07
---reservation=ee4c07
---account=stud-ewi-crs-ee4c07 
+--account=stud-ewi-crs-cese4010
+--partition=cese4010
+--qos=cese4010
+--reservation=cese4010 
  
 ```
 
