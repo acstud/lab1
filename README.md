@@ -382,10 +382,10 @@ Allocating both CPU and GPU resurces on node.
 
 ```console
 #!/bin/sh
-#SBATCH --account=stud-ewi-crs-ee4c07 
-#SBATCH --partition=stud-ewi 
-#SBATCH --qos=ee4c07
-#SBATCH --reservation=ee4c07
+#SBATCH --account=stud-ewi-crs-cese4010
+#SBATCH --partition=cese4010
+#SBATCH --qos=cese4010
+#SBATCH --reservation=cese4010
 #SBATCH --time=0:01:00
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu
@@ -400,10 +400,10 @@ Allocating CPU resurces only on node.
 
 ```console
 #!/bin/sh
-#SBATCH --account=stud-ewi-crs-ee4c07 
-#SBATCH --partition=stud-ewi 
-#SBATCH --qos=ee4c07
-#SBATCH --reservation=ee4c07
+#SBATCH --account=stud-ewi-crs-cese4010
+#SBATCH --partition=cese4010
+#SBATCH --qos=cese4010
+#SBATCH --reservation=cese4010
 #SBATCH --time=0:01:00
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
