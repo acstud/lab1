@@ -356,7 +356,6 @@ These are:
 --partition=cese4010
 --qos=cese4010
 --reservation=cese4010 
- 
 ```
 
 When you want to submit a script to SLURM, you must always supply these
@@ -365,7 +364,7 @@ arguments to sbatch (or you must put them in a job script, see below).
 Example:
 
 ```console
-sbatch --partition=stud-ewi --qos=ee4c07 --reservation=ee4c07 --account=stud-ewi-crs-ee4c07 <job script.sh>
+sbatch --account=stud-ewi-crs-cese4010 --partition=cese4010 --qos=cese4010 --reservation=cese4010 <job script.sh>
 ```
 
 ## Where is the output?
