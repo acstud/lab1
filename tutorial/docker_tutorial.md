@@ -71,6 +71,9 @@ You can now set up CLion remote debugging.
 ### 7. Sharing files
 The lab code template is available in `/labs`(in container). You can also copy your code to `~/docker_share`(on the host side) to compile it in the container(`/docker_share`). (sudo required because the container is started by sudo).
 
+
+
+
 # Docker cheatsheet
 |   |command|
 |---|---|
