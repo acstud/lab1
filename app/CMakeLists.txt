@@ -37,7 +37,7 @@ if (PROFILING)
 endif (PROFILING)
 
 # Enable SIMD
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mavx")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mavx -mfma")
 # This attempts to use AVX. If your system does not have AVX, you may use other options such as:
 # -mavx, -msse4.2, -msse4.1, -msse3, -msse2, -msse, and only use those intrinsics.
 # You can run "cat /proc/cpuinfo" to see what extensions your CPU supports.

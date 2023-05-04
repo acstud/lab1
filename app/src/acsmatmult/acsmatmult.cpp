@@ -30,7 +30,7 @@ struct BenchmarkOptions {
   bool openmp_range = false;
   bool opencl = false;
   bool tests = false;
-  bool verbose_testing = false;
+  bool verbose_testing = true;
 
   // Experiment options
   unsigned int repeats = 1;
